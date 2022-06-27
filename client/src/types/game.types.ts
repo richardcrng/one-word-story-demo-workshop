@@ -1,8 +1,9 @@
 export interface Game {
-  sentences: Sentence[];
+  completedSentences: Sentence<true>[];
+  sentenceInProgress: Sentence<false>;
 }
 
-export interface Sentence {
+export interface Sentence<IsFinished extends boolean = boolean> {
   words: string[];
-  isFinished: boolean;
+  isFinished: IsFinished;
 }
