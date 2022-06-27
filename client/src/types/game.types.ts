@@ -1,3 +1,8 @@
 export interface Game {
-  sentences: string[][];
+  sentences: Sentence[];
+}
+
+export interface Sentence {
+  words: string[];
+  isFinished: boolean;
 }
