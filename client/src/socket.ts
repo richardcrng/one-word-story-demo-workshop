@@ -2,7 +2,9 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { io } from "socket.io-client";
 import { ClientSocket } from "./types/event.types";
 
-const serverUrl = process.env.REACT_APP_SERVER_URL ?? `http://localhost:${process.env.REACT_APP_SERVER_PORT ?? 4000}`;
+const serverUrl =
+  process.env.REACT_APP_SERVER_URL ??
+  `http://localhost:${process.env.REACT_APP_SERVER_PORT ?? 4000}`;
 
 export const socketUrl =
   process.env.NODE_ENV === "production"
