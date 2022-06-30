@@ -20,9 +20,13 @@ export type ServerEvent = keyof ServerEventListeners;
 /**
  * Listeners for `ClientEvent`s
  */
-export type ClientEventListeners = {};
+export type ClientEventListeners = {
+  // triggerSomething: (data: unknown) => void;
+};
 
 /**
  * Listeners for `ServerEvent`s
  */
-export type ServerEventListeners = {};
+export type ServerEventListeners = {
+  // somethingTriggered: (data: unknown) => void;
+};
