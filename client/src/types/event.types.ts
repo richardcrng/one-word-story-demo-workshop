@@ -13,19 +13,20 @@ export type ServerSocket = TServerSocket<
 
 export type ServerIO = TServer<ClientEventListeners, ServerEventListeners>;
 
-export type ClientEvent = keyof ClientEventListeners
+export type ClientEvent = keyof ClientEventListeners;
 
-export type ServerEvent = keyof ServerEventListeners
+export type ServerEvent = keyof ServerEventListeners;
 
 /**
  * Listeners for `ClientEvent`s
  */
 export type ClientEventListeners = {
-}
+  // triggerSomething: (data: unknown) => void;
+};
 
 /**
  * Listeners for `ServerEvent`s
  */
 export type ServerEventListeners = {
-  
-}
+  // somethingTriggered: (data: unknown) => void;
+};
