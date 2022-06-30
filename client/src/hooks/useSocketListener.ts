@@ -8,13 +8,9 @@ export default function useSocketListener<
   const socket = useSocket();
 
   useEffect(() => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore this is okay - it's the right type of listener
     socket.on(event, listener);
 
     return function cleanup() {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore this is okay - it's the right type of listener
       socket.off(event, listener);
     };
   });
