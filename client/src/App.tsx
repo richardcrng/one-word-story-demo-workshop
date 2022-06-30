@@ -4,43 +4,38 @@ import { useState } from "react";
 import { Game, Sentence } from "./types/game.types";
 
 function App(): JSX.Element {
-
   const [game, setGame] = useState<Game>({
     completedSentences: [],
-    sentenceInProgress: { words: [], isFinished: false }
-  })
+    sentenceInProgress: { words: [], isFinished: false },
+  });
 
-
-  const [typedInput, setTypedInput] = useState('');
+  const [typedInput, setTypedInput] = useState("");
 
   const handleAddWord = () => {
-    setGame(prev => ({
+    setGame((prev) => ({
       ...prev,
       sentenceInProgress: {
         ...prev.sentenceInProgress,
-        words: [
-          ...prev.sentenceInProgress.words,
-          typedInput
-        ]
-      }
-    }))
+        words: [...prev.sentenceInProgress.words, typedInput],
+      },
+    }));
 
-    setTypedInput('');
-  }
+    setTypedInput("");
+  };
 
   const handleCompleteSentence = () => {
     setGame((prev) => ({
       ...prev,
       completedSentences: [
         ...prev.completedSentences,
-        { ...prev.sentenceInProgress, isFinished: true }
+        { ...prev.sentenceInProgress, isFinished: true },
       ],
       sentenceInProgress: {
         words: [],
-        isFinished: false
+        isFinished: false,
       },
     }));
-  }
+  };
 
   return (
     <main>
@@ -53,14 +48,17 @@ function App(): JSX.Element {
       </ol>
       <br />
       <h3>Add word</h3>
-      <input value={typedInput} onChange={(e) => setTypedInput(e.target.value)} />
+      <input
+        value={typedInput}
+        onChange={(e) => setTypedInput(e.target.value)}
+      />
       <button onClick={handleAddWord}>Add</button>
       <button onClick={handleCompleteSentence}>Full stop</button>
     </main>
   );
 }
 
-const sentenceText = (sentence: Sentence): string => `${sentence.words.join(' ')}${sentence.isFinished ? '.' : ''}`
-
+const sentenceText = (sentence: Sentence): string =>
+  `${sentence.words.join(" ")}${sentence.isFinished ? "." : ""}`;
 
 export default App;
